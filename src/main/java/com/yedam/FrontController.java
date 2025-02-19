@@ -19,6 +19,7 @@ import com.yedam.control.MainControl;
 import com.yedam.control.ModifyBoardControl;
 import com.yedam.control.ModifyControl;
 import com.yedam.control.NewBoardControl;
+import com.yedam.control.RemoveBoardControl;
 
 /*
  * MVC에서 Control 역할
@@ -42,6 +43,7 @@ public void init(ServletConfig config) throws ServletException{
 	map.put("/addBoard.do", new AddBoardControl());  // 등록처리
 	map.put("/modifyForm.do", new ModifyControl()); // 수정화면
 	map.put("/modifyBoard.do", new ModifyBoardControl()); // 수정처리
+	map.put("/removeBoard.do", new RemoveBoardControl()); //삭제처리
 	
 }
 	
