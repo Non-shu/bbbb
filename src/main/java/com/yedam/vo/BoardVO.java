@@ -2,6 +2,16 @@ package com.yedam.vo;
 
 import java.util.Date;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+
 public class BoardVO { // tbl_board
 	private int boardNo; //게시글 board_no
 	private String title; // 제목 title

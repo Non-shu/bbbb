@@ -12,8 +12,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.control.AddBoardControl;
+import com.yedam.control.AddFormControl;
 import com.yedam.control.BoardListControl;
 import com.yedam.control.Control;
+import com.yedam.control.MainControl;
+import com.yedam.control.ModifyBoardControl;
+import com.yedam.control.ModifyControl;
+import com.yedam.control.NewBoardControl;
 
 /*
  * MVC에서 Control 역할
@@ -29,9 +34,15 @@ public class FrontController extends HttpServlet {
 	
 @Override
 public void init(ServletConfig config) throws ServletException{
-	//map.put("url", "servlet"); // addStudent.do AddstudentServlet
-	map.put("/boardList.do", new BoardListControl());
-	map.put("/addBoard.do", new AddBoardControl());
+	//map.put("url", "servlet"); // addStudent.do AddstudentServlet;
+	map.put("/main.do", new MainControl()); // 메인화면
+	map.put("/boardList.do", new BoardListControl()); // 목록
+	map.put("/addForm.do", new AddFormControl()); // 등록
+	map.put("/board.do", new NewBoardControl()); //상세 
+	map.put("/addBoard.do", new AddBoardControl());  // 등록처리
+	map.put("/modifyForm.do", new ModifyControl()); // 수정화면
+	map.put("/modifyBoard.do", new ModifyBoardControl()); // 수정처리
+	
 }
 	
 	@Override
@@ -40,7 +51,7 @@ public void init(ServletConfig config) throws ServletException{
 		//http://localhost:8080/BoardWeb/addStudent.do => url
 		// /BoardWeb/addStudent.do => uri
 		String uri = req.getRequestURI(); // "/BoardWeb/addStudent.do"
-		String context = req.getContextPath(); // "/BoardWeb"
+		String context = req.getContextPath(); // 
 		String page = uri.substring(context.length());
 		
 		System.out.println(page);
